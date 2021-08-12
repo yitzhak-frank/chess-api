@@ -1,0 +1,233 @@
+{
+  "A1": {
+    "position": "A1",
+    "tool": "♖",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Rook"
+  },
+  "B1": {
+    "position": "B1",
+    "tool": "♘",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Knight"
+  },
+  "C1": {
+    "position": "C1",
+    "tool": "♗",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Bishop"
+  },
+  "D1": {
+    "position": "D1",
+    "tool": "♕",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Queen"
+  },
+  "E1": {
+    "position": "E1",
+    "tool": "♔",
+    "color": true,
+    "isVirgin": true,
+    "rank": "King"
+  },
+  "F1": {
+    "position": "F1",
+    "tool": "♗",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Bishop"
+  },
+  "G1": {
+    "position": "G1",
+    "tool": "♘",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Knight"
+  },
+  "H1": {
+    "position": "H1",
+    "tool": "♖",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Rook"
+  },
+  "A2": {
+    "position": "A2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "B2": {
+    "position": "B2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "C2": {
+    "position": "C2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "D2": {
+    "position": "D2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "E2": {
+    "position": "E2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "F2": {
+    "position": "F2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "G2": {
+    "position": "G2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "H2": {
+    "position": "H2",
+    "tool": "♙",
+    "color": true,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "A7": {
+    "position": "A7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "B7": {
+    "position": "B7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "C7": {
+    "position": "C7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "D7": {
+    "position": "D7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "E7": {
+    "position": "E7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "F7": {
+    "position": "F7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "G7": {
+    "position": "G7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "H7": {
+    "position": "H7",
+    "tool": "♟",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Pawn"
+  },
+  "A8": {
+    "position": "A8",
+    "tool": "♜",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Rook"
+  },
+  /*"B8": {
+    "position": "B8",
+    "tool": "♞",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Knight"
+  },
+  "C8": {
+    "position": "C8",
+    "tool": "♝",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Bishop"
+  },*/
+  "D8": {
+    "position": "D8",
+    "tool": "♛",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Queen"
+  },
+  "C3": {
+    "position": "C3",
+    "tool": "♛",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Queen"
+  },
+  "E8": {
+    "position": "E8",
+    "tool": "♚",
+    "color": false,
+    "isVirgin": true,
+    "rank": "King"
+  },
+  "F8": {
+    "position": "F8",
+    "tool": "♝",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Bishop"
+  },
+  "G8": {
+    "position": "G8",
+    "tool": "♞",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Knight"
+  },
+  "H8": {
+    "position": "H8",
+    "tool": "♜",
+    "color": false,
+    "isVirgin": true,
+    "rank": "Rook"
+  }
+}
