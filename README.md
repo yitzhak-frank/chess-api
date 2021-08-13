@@ -9,7 +9,7 @@ _Method_ - GET
 _Route_ - `/api/games/get-table`<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;[<br />
 &emsp;&emsp;["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"],<br />
@@ -29,7 +29,7 @@ _Method_ - GET
 _Route_ - `/api/games/get-tools`<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"A1": {<br />
@@ -63,7 +63,7 @@ _Method_ - GET
 _Route_ - `/api/games/start-game`<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -128,7 +128,7 @@ _Body_<br />
 }<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -174,7 +174,7 @@ _Parameters_<br />
 }<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"A1": {<br />
@@ -213,7 +213,7 @@ _Parameters_<br />
 }<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -241,7 +241,7 @@ _Parameters_ <br />
 }<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"success": boolean<br />
@@ -284,7 +284,7 @@ _Parameters_<br />
 }<br />
 
 <details>
-<summart>_Response_</summary><br />
+<summary>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"gameState": string,<br />
