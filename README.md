@@ -7,7 +7,9 @@
 **Get table**:  
 _Method_ - GET  
 _Route_ - `/api/games/get-table`<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;[<br />
 &emsp;&emsp;["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"],<br />
@@ -20,11 +22,14 @@ _Response_<br />
 &emsp;&emsp;["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8"]<br />
 &emsp;]<br />
 }
+</details>
 
 **Get tools**:  
 _Method_ - GET  
 _Route_ - `/api/games/get-tools`<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"A1": {<br />
@@ -51,11 +56,14 @@ _Response_<br />
 &emsp;&emsp;...<br />
 &emsp;}<br />
 }
+</details>
 
 **Start game**:  
 _Method_ - GET  
 _Route_ - `/api/games/start-game`<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -86,6 +94,7 @@ _Response_<br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
+</details>
 
 **Restart game**:  
 _Method_ - POST  
@@ -117,7 +126,9 @@ _Body_<br />
 &emsp;&emsp;...<br />
 &emsp;}<br />
 }<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -148,6 +159,7 @@ _Response_<br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
+</details>
 
 ---
 
@@ -160,7 +172,9 @@ _Parameters_<br />
 {<br />
 &emsp; (path) `gameId`: long <br />
 }<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"A1": {<br />
@@ -187,6 +201,7 @@ _Response_<br />
 &emsp;&emsp;...<br />
 &emsp;}<br />
 }
+</details>
 
 **Get tool moves**  
 _Method_ - GET  
@@ -196,7 +211,9 @@ _Parameters_<br />
 &emsp; (path) `gameId`: long <br />
 &emsp; (query) `toolPos`: string <br />
 }<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -211,6 +228,7 @@ _Response_<br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
+</details>
 
 **Move tool**:  
 _Method_ - GET  
@@ -221,7 +239,9 @@ _Parameters_ <br />
 &emsp; (query) `from`: string<br />
 &emsp; (query) `to`: string<br />
 }<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"success": boolean<br />
@@ -252,6 +272,7 @@ _Response_<br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
+</details>
 
 **Game state**:  
 _Method_ - GET  
@@ -261,7 +282,9 @@ _Parameters_<br />
 &emsp; (path) `gameId`: long <br />
 &emsp; (query) `colorTurn`: boolean (can be as string) <br />
 }<br />
-_Response_<br />
+
+<details>
+<summart>_Response_</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"gameState": string,<br />
@@ -274,3 +297,4 @@ _Response_<br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }<br />
+</details>
