@@ -220,6 +220,7 @@ _Parameters_ <br />
 &emsp; (path) `gameId`: long <br />
 &emsp; (query) `from`: string<br />
 &emsp; (query) `to`: string<br />
+}<br />
 _Response_<br />
 {<br />
 &emsp;{<br />
