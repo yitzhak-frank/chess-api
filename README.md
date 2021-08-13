@@ -9,7 +9,7 @@ _Method_ - GET
 _Route_ - `/api/games/get-table`<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;[<br />
 &emsp;&emsp;["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"],<br />
@@ -29,7 +29,7 @@ _Method_ - GET
 _Route_ - `/api/games/get-tools`<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"A1": {<br />
@@ -53,7 +53,7 @@ _Route_ - `/api/games/get-tools`<br />
 &emsp;&emsp;&emsp;"isVirgin": boolean,<br />
 &emsp;&emsp;&emsp;"rank": string<br />
 &emsp;&emsp;}<br />
-&emsp;&emsp;...<br />
+&emsp;&emsp;<strong>...</strong><br />
 &emsp;}<br />
 }
 </details>
@@ -63,7 +63,7 @@ _Method_ - GET
 _Route_ - `/api/games/start-game`<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -90,7 +90,7 @@ _Route_ - `/api/games/start-game`<br />
 &emsp;&emsp;&emsp;&emsp;"isVirgin": boolean,<br />
 &emsp;&emsp;&emsp;&emsp;"rank": string<br />
 &emsp;&emsp;&emsp;}<br />
-&emsp;&emsp;&emsp;...<br />
+&emsp;&emsp;&emsp;<strong>...</strong><br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
@@ -123,12 +123,12 @@ _Body_<br />
 &emsp;&emsp;&emsp;"isVirgin": boolean,<br />
 &emsp;&emsp;&emsp;"rank": string<br />
 &emsp;&emsp;}<br />
-&emsp;&emsp;...<br />
+&emsp;&emsp;<strong>...</strong><br />
 &emsp;}<br />
 }<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -155,7 +155,7 @@ _Body_<br />
 &emsp;&emsp;&emsp;&emsp;"isVirgin": boolean,<br />
 &emsp;&emsp;&emsp;&emsp;"rank": string<br />
 &emsp;&emsp;&emsp;}<br />
-&emsp;&emsp;&emsp;...<br />
+&emsp;&emsp;&emsp;<strong>...</strong><br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
@@ -165,7 +165,7 @@ _Body_<br />
 
 **Game Route**
 
-**Get all posts**:  
+**Get game tools**:  
 _Method_: GET  
 _Route_: `/api/game/get-game-tools/{gameId}`<br />
 _Parameters_<br />
@@ -174,7 +174,7 @@ _Parameters_<br />
 }<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"A1": {<br />
@@ -198,7 +198,7 @@ _Parameters_<br />
 &emsp;&emsp;&emsp;"isVirgin": boolean,<br />
 &emsp;&emsp;&emsp;"rank": string<br />
 &emsp;&emsp;}<br />
-&emsp;&emsp;...<br />
+&emsp;&emsp;<strong>...</strong><br />
 &emsp;}<br />
 }
 </details>
@@ -213,7 +213,7 @@ _Parameters_<br />
 }<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
@@ -224,7 +224,7 @@ _Parameters_<br />
 &emsp;&emsp;&emsp;"A1": string,<br />
 &emsp;&emsp;&emsp;"B1": string,<br />
 &emsp;&emsp;&emsp;"C1": string<br />
-&emsp;&emsp;&emsp;...<br />
+&emsp;&emsp;&emsp;<strong>...</strong><br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
@@ -241,7 +241,7 @@ _Parameters_ <br />
 }<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"success": boolean<br />
@@ -268,7 +268,7 @@ _Parameters_ <br />
 &emsp;&emsp;&emsp;&emsp;"isVirgin": boolean,<br />
 &emsp;&emsp;&emsp;&emsp;"rank": string<br />
 &emsp;&emsp;&emsp;}<br />
-&emsp;&emsp;&emsp;...<br />
+&emsp;&emsp;&emsp;<strong>...</strong><br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }
@@ -284,7 +284,7 @@ _Parameters_<br />
 }<br />
 
 <details>
-<summary>_Response_</summary><br />
+<summary>Response</summary><br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"gameState": string,<br />
@@ -293,7 +293,7 @@ _Parameters_<br />
 &emsp;&emsp;&emsp;"A1": string,<br />
 &emsp;&emsp;&emsp;"B1": string,<br />
 &emsp;&emsp;&emsp;"C1": string<br />
-&emsp;&emsp;&emsp;...<br />
+&emsp;&emsp;&emsp;<strong>...</strong><br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
 }<br />
