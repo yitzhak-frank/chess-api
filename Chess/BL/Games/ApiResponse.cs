@@ -67,7 +67,7 @@ namespace Chess.Games
         {
             public string gameState { get; set; }
             public string kingThreats { get; set; }
-            public Dictionary<string, string> kingThreatenedMoves { get; set; } = KingGuard.unallowedMoves;
+            public Dictionary<string, string> unallowedMoves { get; set; } = KingGuard.unallowedMoves;
             public GameStateResponse(string gameState, string kingThreats)
             {
                 this.gameState = gameState;

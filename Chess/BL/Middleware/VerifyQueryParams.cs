@@ -34,7 +34,7 @@ namespace Chess.BL.Middleware
                         context.Result = new RedirectResult($"/api/game/error/{message}");
                         return;
                     } 
-                    if(new Regex(@"^(to|from|pos)$").IsMatch(query) && !GamesManager.IsCellExist(queryValue))
+                    if(new Regex(@"^(to|from|toolPos)$").IsMatch(query) && !GamesManager.IsCellExist(queryValue))
                     {
                         string message = $"Incorrect argument - No such position as {queryValue}";
                         context.Result = new RedirectResult($"/api/game/error/{message}");

@@ -27,10 +27,10 @@ namespace Chess.Controllers
 
         [HttpGet]
         [Route("get-moves/{gameId}")]
-        [VerifyGameId, VerifyQueryParams("pos")]
-        public MovesResponse GetMoves(long gameId, string pos)
+        [VerifyGameId, VerifyQueryParams("toolPos")]
+        public MovesResponse GetMoves(long gameId, string toolPos)
         {
-            return GamesManager.GetGame(gameId).GetToolMoves(pos);
+            return GamesManager.GetGame(gameId).GetToolMoves(toolPos);
         }
 
 
