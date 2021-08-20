@@ -67,7 +67,7 @@ _Route_ - `/api/games/start-game`<br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
-&emsp;&emsp;"gammeId" : long,<br />
+&emsp;&emsp;"gameId" : long,<br />
 &emsp;&emsp;"tools" : {<br />
 &emsp;&emsp;&emsp;"A1": {<br />
 &emsp;&emsp;&emsp;&emsp;"color": boolean,<br />
@@ -132,7 +132,7 @@ _Body_<br />
 {<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
-&emsp;&emsp;"gammeId" : long,<br />
+&emsp;&emsp;"gameId" : long,<br />
 &emsp;&emsp;"tools" : {<br />
 &emsp;&emsp;&emsp;"A1": {<br />
 &emsp;&emsp;&emsp;&emsp;"color": boolean,<br />

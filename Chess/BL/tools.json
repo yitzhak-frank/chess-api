@@ -174,7 +174,7 @@
     "isVirgin": true,
     "rank": "Rook"
   },
-  /*"B8": {
+  "B8": {
     "position": "B8",
     "tool": "♞",
     "color": false,
@@ -187,16 +187,9 @@
     "color": false,
     "isVirgin": true,
     "rank": "Bishop"
-  },*/
+  },
   "D8": {
     "position": "D8",
-    "tool": "♛",
-    "color": false,
-    "isVirgin": true,
-    "rank": "Queen"
-  },
-  "C3": {
-    "position": "C3",
     "tool": "♛",
     "color": false,
     "isVirgin": true,

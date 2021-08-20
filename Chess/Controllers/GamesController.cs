@@ -1,48 +1,41 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
-using Newtonsoft.Json;
-using Chess.Tools;
-using Newtonsoft.Json.Linq;
-using Chess.Game;
+﻿using Microsoft.AspNetCore.Mvc;
 using Chess.Games;
-using static Chess.Games.ApiResponse;
+using Chess.BL.Middleware;
 using static Chess.Table.Data;
 
 namespace Chess.Controllers
 {
-    [Route("api/games")]
     [ApiController]
+    [Route("api/games")]
     public class GamesController : ControllerBase
     {
-        [HttpGet, Route("get-table")]
-        public string[][] GetTable()
+        [HttpGet]
+        [Route("get-table")]
+        public IActionResult GetTable()
         {
-            return chessMatrix;
+            return Ok(chessMatrix);
         }
 
-        [HttpGet, Route("get-tools")]
-        public Dictionary<string, ToolInfo> GetTools()
+        [HttpGet]
+        [Route("get-tools")]
+        public IActionResult GetTools()
         {
-            return GamesManager.GetInitalToolsInfo();
+            return Ok(GamesManager.GetInitalToolsInfo());
         }
 
-        [HttpGet, Route("start-game")]
-        public NewGameResponse StartGame()
+        [HttpGet]
+        [Route("start-game")]
+        public IActionResult StartGame()
         {
-            return GamesManager.CreateNewGame();
+            return Ok(GamesManager.CreateNewGame());
         }
 
-        [HttpPost, Route("restart-game")]
-        public async Task<NewGameResponse> RestartGame()
+        [HttpPost]
+        [Route("restart-game")]
+        [VerifyGameTools]
+        public IActionResult RestartGame()
         {
-            return await GamesManager.RestartGameAsync(Request.Body);
+            return Ok(GamesManager.RestartGame(GamesManager.GetToolsFromReqBody(Request)));
         }
     }
 }

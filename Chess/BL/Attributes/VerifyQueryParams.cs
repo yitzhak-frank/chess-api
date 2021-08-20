@@ -31,20 +31,20 @@ namespace Chess.BL.Middleware
                     if(queryValue == "") 
                     {
                         string message = $"Missing argument - '{query}' parameter is requierd";
-                        context.Result = new RedirectResult($"/api/game/error/{message}");
+                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
                         return;
                     } 
                     if(new Regex(@"^(to|from|toolPos)$").IsMatch(query) && !GamesManager.IsCellExist(queryValue))
                     {
                         string message = $"Incorrect argument - No such position as {queryValue}";
-                        context.Result = new RedirectResult($"/api/game/error/{message}");
+                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
                         return;
                     }
                     Boolean _;
                     if (query == "colorTurn" && !Boolean.TryParse(queryValue, out _))
                     {
                         string message = $"Incorrect argument - '{query}' parameter must have a boolean value, 'true' for white and 'false' for black";
-                        context.Result = new RedirectResult($"/api/game/error/{message}");
+                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
                         return;
                     }
                 }
