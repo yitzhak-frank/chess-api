@@ -53,7 +53,7 @@ namespace Chess.Game.Guards
             foreach (string move in possibleMoves.ToList())
             {
                 // if selected tool is king do the chess check on his possible moves position
-                kingPos = king ?? move;
+                kingPos = king == "" ? move : king;
                 // if there is another tool in this position save him
                 ToolExisted = tools.ContainsKey(move) ? tools[move] : null;
                 // if Attacker will be killed by moving the tool allow it
@@ -87,6 +87,7 @@ namespace Chess.Game.Guards
 
         public static string CheckGameState(List<string> ThreatsMap, bool colorTurn, Dictionary<string, Tool> tools)
         {
+            kingThrets = "";
             bool isChess = CheckIfChess(ThreatsMap, colorTurn, tools);
             string kingPos = GetKingPosition(colorTurn, tools);
             List<string> kingPossibleMoves = tools[kingPos].GetPossibleMoves(tools);

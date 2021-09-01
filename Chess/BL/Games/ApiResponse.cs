@@ -13,13 +13,15 @@ namespace Chess.Games
         {
             public string message { get; set; }
             public long gameId { get; set; }
+            public bool colorTurn { get; set; }
             public Dictionary<string, ToolInfo> tools { get; set; }
 
-            public NewGameResponse(string message, long gameId, Dictionary<string, ToolInfo> tools)
+            public NewGameResponse(string message, long gameId, bool colorTurn, Dictionary<string, ToolInfo> tools)
             {
                 this.message = message;
                 this.gameId = gameId;
                 this.tools = tools;
+                this.colorTurn = colorTurn;
             }
             
         }
@@ -52,26 +54,35 @@ namespace Chess.Games
         public class MoveResponse
         {
             public bool success { get; set; }
+            public bool colorTurn { get; set; }
             public string message { get; set; }
             public Dictionary<string, ToolInfo> tools { get; set; }
 
-            public MoveResponse(bool success,string message, Dictionary<string, ToolInfo> tools)
+            public MoveResponse(bool success, bool colorTurn, string message, Dictionary<string, ToolInfo> tools)
             {
                 this.message = message;
                 this.tools = tools;
                 this.success = success;
+                this.colorTurn = colorTurn;
             }
         }
         
         public class GameStateResponse
         {
+            public bool isChess { get; set; }
+            public bool isChessmate { get; set; }
+            public bool colorThreatend { get; set; }
             public string gameState { get; set; }
             public string kingThreats { get; set; }
             public Dictionary<string, string> unallowedMoves { get; set; } = KingGuard.unallowedMoves;
-            public GameStateResponse(string gameState, string kingThreats)
+
+            public GameStateResponse(string gameState, string kingThreats, bool isChess, bool isChessmate, bool colorThreatend)
             {
                 this.gameState = gameState;
                 this.kingThreats = kingThreats;
+                this.isChess = isChess;
+                this.isChessmate = isChessmate;
+                this.colorThreatend = colorThreatend;
             }
         }
     }

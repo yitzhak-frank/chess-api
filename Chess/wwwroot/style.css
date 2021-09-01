@@ -1,0 +1,108 @@
+﻿.table-container table {
+    margin: 70px auto;
+    box-shadow: 2px 2px 8px silver;
+}
+
+.table-container table td {
+    height: 75px;
+    width: 75px;
+    font-size: 2.3rem;
+    padding: 0 !important;
+    text-align: center;
+    line-height: 75px;
+}
+
+.table-container table td .bg {
+    height: 75px;
+    width: 75px;
+}
+
+.table-container table td .bg.move {
+    background-color: rgba(155, 255, 100, 0.3);
+}
+
+.table-container table td .bg.chess {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.table-container table td .bg .tool {
+    height: 75px;
+    width: 75px;
+}
+
+.table-container table td .bg .tool:hover {
+    cursor: pointer;
+}
+
+tr:nth-child(even) td:nth-child(even),
+tr:nth-child(odd) td:nth-child(odd) {
+    background: rgba(128, 128, 128, 0.95);
+}
+
+tr:nth-child(odd) td:nth-child(even),
+tr:nth-child(even) td:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.toast {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px gray;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    max-width: 400px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.toast .message {
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+.toast .message ul {
+    padding: 5px;
+    padding-left: 25px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toast .message ul li {
+    padding: 2px;
+    line-height: 1.5;
+}
+
+.toast .close-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: red;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.toast .close-popup:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.toast .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ddd;
+    height: 5px;
+    width: 0;
+    transition: 5000ms;
+}

@@ -14,16 +14,16 @@ namespace Chess.Game.Guards
 
         public static List<string> GetCastlingMoves(Tool King, Dictionary<string, Tool> tools)
         {
+            if (!King.isVirgin) return castlingMoves;
+
             List<Tool> rooks = GetVirginRooks(King, tools);
             castlingMoves.Clear();
 
             foreach (Tool Rook in rooks)
-                if (IsCastlingPathClearFromTools(King, Rook, tools) && IsKingPathClearFromThreats(King, tools) && IsCastlingAllowed(King, rooks))
+                if (IsCastlingPathClearFromTools(King, Rook, tools) && IsKingPathClearFromThreats(King, tools) && (rooks.Count > 0))
                     castlingMoves.Add(kingPath[1]);
             return castlingMoves;
         }
-
-        private static bool IsCastlingAllowed(Tool King, List<Tool> rooks) => King.isVirgin && rooks.Count > 0;
 
         private static List<Tool> GetVirginRooks(Tool King, Dictionary<string, Tool> tools) => tools.Values.ToList().FindAll(Tool => Tool.color == King.color && Tool is Rook && Tool.isVirgin);
 
@@ -68,7 +68,7 @@ namespace Chess.Game.Guards
             Tool King = tools[kingNewPos];
             King.SetIndex();
             int[] kingIndex = King.index;
-            string rookOldPos = tools.Values.ToList().Find(Tool => Tool is Rook && Tool.color == King.color && Tool.position.CompareTo(kingNewPos) == kingOldPos.CompareTo(kingNewPos)).position;
+            string rookOldPos = tools.Values.ToList().Find(Tool => Tool is Rook && Tool.color == King.color && Tool.position.CompareTo(kingNewPos) != kingOldPos.CompareTo(kingNewPos)).position;
             string rookNewPos = chessMatrix[kingIndex[0] + kingOldPos.CompareTo(kingNewPos)][kingIndex[1]];
             return new Dictionary<string, string> { { "oldPos", rookOldPos }, { "newPos", rookNewPos } };
         }

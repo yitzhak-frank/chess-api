@@ -12,12 +12,14 @@ namespace Chess.Game
 {
     public class GameManager
     {
-        public long gameId { get; } = DateTimeOffset.Now.ToUnixTimeSeconds();
+        public bool colorTurn;
+        public long gameId { get; } = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         public Dictionary<string, Tool> tools { get; } = new () { };
 
-        public GameManager(List<ToolInfo> toolsInfo)
+        public GameManager(List<ToolInfo> toolsInfo, bool colorTurn)
         {
             InitGameTools(toolsInfo);
+            this.colorTurn = colorTurn;
         }
 
         private void InitGameTools(List<ToolInfo> toolsInfo) => toolsInfo.ForEach(tool => tools.Add(tool.position, GetTool(tool)));
@@ -53,7 +55,7 @@ namespace Chess.Game
         public MoveResponse MoveTool(string oldPos, string newPos)
         {
             string moveState = IsMoveAllowed(oldPos, newPos);
-            if (moveState != "") return new MoveResponse(false, moveState, GetGameToolsInfo());
+            if (moveState != "") return new MoveResponse(false, colorTurn, moveState, GetGameToolsInfo());
 
             if (Castling.IsCastling(oldPos, newPos, tools)) moveState = Castle(oldPos, newPos);
             else
@@ -61,7 +63,8 @@ namespace Chess.Game
                 UpdateToolsOnMove(oldPos, newPos);
                 moveState = $"{(tools[newPos].color ? "White" : "Black")} {tools[newPos].rank} from {oldPos} position, has been successfully moved to {newPos} position";
             }
-            return new MoveResponse(true, moveState, GetGameToolsInfo());
+            colorTurn = !colorTurn;
+            return new MoveResponse(true, colorTurn, moveState, GetGameToolsInfo());
         }
 
         public void UpdateToolsOnMove(string oldPos, string newPos)
@@ -88,10 +91,11 @@ namespace Chess.Game
             return $"Castling succeeded - {King.colorStr} King at {oldPos} position has been moved to {newPos} position and {Rook.colorStr} Rook at {rookPositions["oldPos"]} position has been moved to {Rook.position} position";
         }
 
-        public GameStateResponse GetGameState(bool colorTurn)
+        public GameStateResponse GetGameState()
         {
             string gameState = KingGuard.CheckGameState(new List<string> { }, colorTurn, tools);
-            return new GameStateResponse(gameState, KingGuard.kingThrets);
+            bool isChess = gameState.Contains("Chess"), isChessmate = gameState.Contains("Chessmate");
+            return new GameStateResponse(gameState, KingGuard.kingThrets, isChess, isChessmate, colorTurn);
         }
     }
 }

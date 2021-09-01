@@ -18,6 +18,7 @@ namespace Chess.Tools
             SetIndex();
             possibleMoves.Clear();
             CalcPossibleMovesStraight(tools);
+            CalcToolsToEat(CheckToolsToEat, tools);
             return possibleMoves;
         }
 
@@ -31,11 +32,9 @@ namespace Chess.Tools
 
         private void CalcPossibleMovesStraight(Dictionary<string, Tool> tools)
         {
+            bool isBlocked = CheckPossibleMoves(chessMatrix[index[0]][index[1] + direction], tools);
             bool isFirstMove = tools[position].isVirgin;
-            if (isFirstMove) CheckPossibleMoves(chessMatrix[index[0]][index[1] + (direction * 2)], tools);
-
-            CheckPossibleMoves(chessMatrix[index[0]][index[1] + direction], tools);
-            CalcToolsToEat(CheckToolsToEat, tools);
+            if (isFirstMove && !isBlocked) CheckPossibleMoves(chessMatrix[index[0]][index[1] + (direction * 2)], tools);
         }
 
         private void CalcToolsToEat(Action<string, Dictionary<string, Tool>> check, Dictionary<string, Tool> tools)
@@ -56,10 +55,11 @@ namespace Chess.Tools
             if (isOpponent) possibleMoves.Add(currentCell);
         }
 
-        public new void CheckPossibleMoves(string currentCell, Dictionary<string, Tool> tools)
+        public new bool CheckPossibleMoves(string currentCell, Dictionary<string, Tool> tools)
         {
             bool isCellHasTool = tools.ContainsKey(currentCell);
             if (!isCellHasTool) possibleMoves.Add(currentCell);
+            return isCellHasTool;
         }
 
         public new void CheckThreatsMap(string currentCell, Dictionary<string, Tool> tools)

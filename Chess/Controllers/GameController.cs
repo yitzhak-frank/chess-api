@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Chess.Games;
 using Chess.BL.Middleware;
+using static Chess.Games.ApiResponse;
 
 namespace Chess.Controllers
 {
@@ -11,7 +12,7 @@ namespace Chess.Controllers
     {
         [HttpGet] 
         [Route("get-game-tools/{gameId}")]
-        public IActionResult GetGameTools(long gameId)
+        public ActionResult<ToolsResponse> GetGameTools(long gameId)
         {
             return Ok(GamesManager.GetGame(gameId).GetGameToolsInfo());
         }
@@ -20,7 +21,7 @@ namespace Chess.Controllers
         [HttpGet]
         [Route("get-moves/{gameId}")]
         [VerifyQueryParams("toolPos")]
-        public IActionResult GetMoves(long gameId, string toolPos)
+        public ActionResult<MovesResponse> GetMoves(long gameId, string toolPos)
         {
             return Ok(GamesManager.GetGame(gameId).GetToolMoves(toolPos));
         }
@@ -29,7 +30,7 @@ namespace Chess.Controllers
         [HttpGet]
         [Route("move-tool/{gameId}")]
         [VerifyQueryParams("from", "to")]
-        public IActionResult MoveTool(long gameId, string from, string to)
+        public ActionResult<MoveResponse> MoveTool(long gameId, string from, string to)
         {
             return Ok(GamesManager.GetGame(gameId).MoveTool(from, to));
         }
@@ -37,10 +38,9 @@ namespace Chess.Controllers
 
         [HttpGet]
         [Route("game-state/{gameId}")]
-        [VerifyQueryParams("colorTurn")]
-        public IActionResult GameState(long gameId, bool colorTurn)
+        public ActionResult<GameStateResponse> GameState(long gameId)
         {
-            return Ok(GamesManager.GetGame(gameId).GetGameState(colorTurn));
+            return Ok(GamesManager.GetGame(gameId).GetGameState());
         }
     }
 }

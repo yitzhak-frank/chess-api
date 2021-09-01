@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Chess.Tools;
@@ -22,7 +20,7 @@ namespace Chess.Games
 
         public static Dictionary<string, ToolInfo> GetInitalToolsInfo()
         {
-            StreamReader File = new StreamReader("BL/Tools.json");
+            StreamReader File = new ("BL/Tools.json");
             string toolsStr = File.ReadToEnd();
             return JsonConvert.DeserializeObject<Dictionary<string, ToolInfo>>(toolsStr);
         }
@@ -39,18 +37,18 @@ namespace Chess.Games
         {
             Dictionary<string, ToolInfo> tools = GetInitalToolsInfo();
 
-            GameManager Game = new(tools.Values.ToList());
+            GameManager Game = new(tools.Values.ToList(), true);
             games.Add(Game);
 
-            return new NewGameResponse("Your game has been successfully initialized", Game.gameId, Game.GetGameToolsInfo());
+            return new NewGameResponse("Your game has been successfully initialized", Game.gameId, Game.colorTurn, Game.GetGameToolsInfo());
         }
 
-        public static NewGameResponse RestartGame(Dictionary<string, ToolInfo> tools)
+        public static NewGameResponse RestartGame(Dictionary<string, ToolInfo> tools, bool colorTurn)
         {
-            GameManager Game = new(tools.Values.ToList());
+            GameManager Game = new(tools.Values.ToList(), colorTurn);
             games.Add(Game);
 
-            return new NewGameResponse("Your game has been successfuly initialized", Game.gameId, Game.GetGameToolsInfo());
+            return new NewGameResponse("Your game has been successfuly initialized", Game.gameId, Game.colorTurn, Game.GetGameToolsInfo());
         }
 
         public static bool IsCellExist(string pos)
