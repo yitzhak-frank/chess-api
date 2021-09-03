@@ -73,6 +73,7 @@ _Route_ - `/api/games/start-game`<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
 &emsp;&emsp;"gameId" : long,<br />
+&emsp;&emsp;"colorTurn" : bool,<br />
 &emsp;&emsp;"tools" : {<br />
 &emsp;&emsp;&emsp;"A1": {<br />
 &emsp;&emsp;&emsp;&emsp;"color": boolean,<br />
@@ -141,6 +142,7 @@ _Body_<br />
 &emsp;{<br />
 &emsp;&emsp;"message": string,<br />
 &emsp;&emsp;"gameId" : long,<br />
+&emsp;&emsp;"colorTurn" : bool,<br />
 &emsp;&emsp;"tools" : {<br />
 &emsp;&emsp;&emsp;"A1": {<br />
 &emsp;&emsp;&emsp;&emsp;"color": boolean,<br />
@@ -254,6 +256,7 @@ _Parameters_ <br />
 &emsp;{<br />
 &emsp;&emsp;"success": boolean<br />
 &emsp;&emsp;"message": string,<br />
+&emsp;&emsp;"colorTurn" : bool,<br />
 &emsp;&emsp;"tools" : {<br />
 &emsp;&emsp;&emsp;"A1": {<br />
 &emsp;&emsp;&emsp;&emsp;"color": boolean,<br />
@@ -296,6 +299,8 @@ _Parameters_<br />
 &emsp;{<br />
 &emsp;&emsp;"gameState": string,<br />
 &emsp;&emsp;"kingThreats": string,<br />
+&emsp;&emsp;"isChess": bool,<br />
+&emsp;&emsp;"isChessmate": bool,<br />
 &emsp;&emsp;"unallowedMoves": {<br />
 &emsp;&emsp;&emsp;"A1": string,<br />
 &emsp;&emsp;&emsp;"B1": string,<br />
