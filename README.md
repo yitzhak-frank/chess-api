@@ -1,4 +1,4 @@
-# Chess Api README
+# Chess API README
 
 ## Description
 
