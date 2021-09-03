@@ -104,6 +104,9 @@ _Route_ - `/api/games/start-game`<br />
 **Restart game**:  
 _Method_ - POST  
 _Route_ - `/api/games/restart-game`<br />
+{<br />
+&emsp; (query) `colorTurn`: boolean (can be as string) <br />
+}<br />
 _Body_<br />
 {<br />
 &emsp;{<br />
@@ -285,7 +288,6 @@ _Route_ - `/api/game/game-state/{gameId}`<br />
 _Parameters_<br />
 {<br />
 &emsp; (path) `gameId`: long <br />
-&emsp; (query) `colorTurn`: boolean (can be as string) <br />
 }<br />
 
 <details>
