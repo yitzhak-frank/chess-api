@@ -1,6 +1,6 @@
 ﻿using System;
-using Chess.Games;
-using Chess.Game;
+using Chess.BL.Games;
+using Chess.BL.Game;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +11,7 @@ namespace Chess.BL.Middleware
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             long gameId = Convert.ToInt64(context.ActionArguments["gameId"]);
-            GameManager Game = GamesManager.games.Find(Game => Game.gameId == gameId);
+            GameManager Game = CacheService.GetGameFromCache(gameId);
             if (Game == null) 
             {
                 string message = $"No game ID found match to {gameId}";

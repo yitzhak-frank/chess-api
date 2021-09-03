@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Chess.Tools;
-using static Chess.Games.GamesManager;
+using static Chess.BL.Games.GamesManager;
 using static Chess.Tools.ToolsFactory;
 using static Chess.Table.Data;
-using static Chess.Games.ApiResponse;
+using static Chess.BL.Games.ApiResponse;
 using Chess.Game.Guards;
 
-namespace Chess.Game
+namespace Chess.BL.Game
 {
     public class GameManager
     {

@@ -175,7 +175,7 @@ const dragAndDrop = (event, element) => {
     }
 
     const stopDragElement = e => {
-        $(element).css({'position': '', 'top': '', 'left': ''});
+        $(element).css({'position': '', 'top': '', 'left': '', 'visibility': 'hidden'}).delay(10).queue(() => $(element).css('visibility', 'visible'));;
         document.onmouseup = null;
         document.onmousemove = null;
         dropElement(e);

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Chess.Game.Guards;
 using Chess.Tools;
 
-namespace Chess.Games
+namespace Chess.BL.Games
 {
     public class ApiResponse
     {

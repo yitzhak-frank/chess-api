@@ -4,19 +4,17 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Chess.Tools;
-using Chess.Game;
-using static Chess.Games.ApiResponse;
+using static Chess.BL.Games.ApiResponse;
 using static Chess.Table.Data;
+using Chess.BL.Game;
 
-namespace Chess.Games
+namespace Chess.BL.Games
 {
     public static class GamesManager
     {
-        public static List<GameManager> games = new List<GameManager> { };
+        public static void RemoveGame(long gameId) => CacheService.RemoveGameFromCache(gameId);
 
-        public static void RemoveGame(long gameId) => games.Remove(games.Find(Game => Game.gameId == gameId));
-
-        public static GameManager GetGame(long gameId) => games.Find(Game => Game.gameId == gameId);
+        public static GameManager GetGame(long gameId) => CacheService.GetGameFromCache(gameId);
 
         public static Dictionary<string, ToolInfo> GetInitalToolsInfo()
         {
@@ -24,7 +22,6 @@ namespace Chess.Games
             string toolsStr = File.ReadToEnd();
             return JsonConvert.DeserializeObject<Dictionary<string, ToolInfo>>(toolsStr);
         }
-
 
         public static Dictionary<string, ToolInfo> GetToolsFromReqBody(HttpRequest Req)
         {
@@ -38,7 +35,7 @@ namespace Chess.Games
             Dictionary<string, ToolInfo> tools = GetInitalToolsInfo();
 
             GameManager Game = new(tools.Values.ToList(), true);
-            games.Add(Game);
+            CacheService.AddGameToCache(Game.gameId, Game);
 
             return new NewGameResponse("Your game has been successfully initialized", Game.gameId, Game.colorTurn, Game.GetGameToolsInfo());
         }
@@ -46,7 +43,7 @@ namespace Chess.Games
         public static NewGameResponse RestartGame(Dictionary<string, ToolInfo> tools, bool colorTurn)
         {
             GameManager Game = new(tools.Values.ToList(), colorTurn);
-            games.Add(Game);
+            CacheService.AddGameToCache(Game.gameId, Game);
 
             return new NewGameResponse("Your game has been successfuly initialized", Game.gameId, Game.colorTurn, Game.GetGameToolsInfo());
         }

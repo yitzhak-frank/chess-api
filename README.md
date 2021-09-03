@@ -1,5 +1,10 @@
 # Chess Api README
 
+## Description
+
+This project provides an API for everything you need to establish a functional chess game. <br />
+All routes are listed below and you also have a little playground in the root route.
+
 ## Routes
 
 **Games Route**

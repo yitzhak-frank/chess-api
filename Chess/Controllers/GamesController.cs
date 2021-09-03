@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using Chess.Games;
+using Chess.BL.Games;
 using Chess.BL.Middleware;
 using static Chess.Table.Data;
-using static Chess.Games.ApiResponse;
+using static Chess.BL.Games.ApiResponse;
 using System.Collections.Generic;
 using Chess.Tools;
 

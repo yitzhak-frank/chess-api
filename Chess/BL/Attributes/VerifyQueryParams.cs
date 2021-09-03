@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using Chess.Games;
+using Chess.BL.Games;
 
 namespace Chess.BL.Middleware
 {
