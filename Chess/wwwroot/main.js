@@ -57,16 +57,25 @@ const fetchGameState = async () => {
 const renderHTML = () => {
     const { state: { table: matrix } } = history;
     const table = $('.table-container table');
+    const trMarks = $(`<tr class="row marks"><td class="mark"></td></tr>`);
     
     matrix.forEach((row, x) => {
         const tr = $(`<tr class="row"></tr>`);
-        table.append(tr);
+        const tdMarkABC = $(`<td class="mark">${row[x][0]}</td>`);
+        const tdMark123 = $(`<td class="mark">${x +1}</td>`);
 
         row.forEach((col, y) => {
             const td = $(`<td class="col"><div id="${matrix[y][x]}" class="bg"></div></td>`);
             tr.append(td);
-        })
+        });
+
+        table.append(tr);
+        tr.prepend(tdMark123);
+        $(tdMark123).clone().appendTo(tr);
+        $(tdMarkABC).clone().appendTo(trMarks);
     });
+    table.prepend(trMarks);
+    $(trMarks).clone().appendTo(table);
 }
 
 const insertTools = () => {
@@ -175,7 +184,7 @@ const dragAndDrop = (event, element) => {
     }
 
     const stopDragElement = e => {
-        $(element).css({'position': '', 'top': '', 'left': '', 'visibility': 'hidden'}).delay(10).queue(() => $(element).css('visibility', 'visible'));;
+        $(element).css({'position': '', 'top': '', 'left': ''});
         document.onmouseup = null;
         document.onmousemove = null;
         dropElement(e);
