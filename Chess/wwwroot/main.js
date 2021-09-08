@@ -88,7 +88,7 @@ const viewEvents = () => {
     $('.tool').off('mousedown').on('mousedown', e => dragAndDrop(e, e.target))
         .off('pointerdown').on('pointerdown', ({ target: { parentNode: { id }}}) => onToolClicked(id))
         .off('drop').on('drop', ({ target: { parentNode: { id }}}) => onToolClicked(id));
-    $('td .bg').off('click').on('click', ({ target: { id, className }}) => !className.includes('tool') && onEmptyCellClicked(id));
+    $('td .bg').off('click').on('click', ({ target: { id, className }}) => !className.includes('tool') && selectedTool && moveTool(id));
     $('.toast').off('mouseleave').on('mouseleave', () => Timer.resume()).off('mouseenter').on('mouseenter', () => Timer.pause());
     $('.toast .close-popup').off('click').on('click', closePopup);
 }
@@ -99,8 +99,6 @@ const onToolClicked = pos => {
     if (!selectedTool || tool1.color === tool2.color) getToolMoves(pos);
     else moveTool(pos);
 }
-
-const onEmptyCellClicked = pos => selectedTool && moveTool(pos);
 
 const getToolMoves = async pos => {
     const moves = await fetchToolMoves(pos);
@@ -128,15 +126,13 @@ const getGameState = async () => {
     popupMessageHandler();
 }
 
-const chess = color => {
-    markChess(getKingPosition(color));
-}
-
 const getKingPosition = color => {
     const { state: { tools } } = history;
     const kingPos = Object.values(tools).find(tool => tool.color === color && tool.rank === 'King').position;
     return kingPos;
 }
+
+const chess = color => markChess(getKingPosition(color));
 
 const removeAllTools = () => $('.tool').remove();
 
@@ -194,7 +190,7 @@ const dragAndDrop = (event, element) => {
     const dropElement = ({ x, y }) => {
       const target = document.elementFromPoint(x, y);
       if(element === target) return;
-      const click  = function() { this.click() };
+      const click = function() { this.click(); };
       $(target).on('drop', click).trigger('drop').off('drop', click);
     }
 
