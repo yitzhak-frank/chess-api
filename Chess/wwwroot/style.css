@@ -15,6 +15,7 @@
 .table-container table td .bg {
     height: 75px;
     width: 75px;
+    transition: 0.5s;
 }
 
 .table-container table td .bg.move {
@@ -45,7 +46,8 @@ tr:nth-child(even) td:nth-child(odd) {
 }
 
 td.mark {
-    background-color: white !important;
+    background-color: #343a40 !important;
+    color: white;
     height: 50px !important;
     width: 50px !important;
     line-height: 0 !important;
@@ -93,10 +95,11 @@ td.mark {
     align-items: center;
     height: 22px;
     width: 22px;
-    border-radius: 50%;
+    border-radius: 5px;
     font-size: 18px;
     background-color: red;
     color: #fff;
+    border: 1px solid white;
     transition: 0.5s;
 }
 

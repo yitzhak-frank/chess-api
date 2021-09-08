@@ -74,6 +74,7 @@ const renderHTML = () => {
         $(tdMark123).clone().appendTo(tr);
         $(tdMarkABC).clone().appendTo(trMarks);
     });
+    trMarks.append('<td class="mark"></td>');
     table.prepend(trMarks);
     $(trMarks).clone().appendTo(table);
 }
