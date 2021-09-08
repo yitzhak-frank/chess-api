@@ -64,7 +64,7 @@ const renderHTML = () => {
         const tdMarkABC = $(`<td class="mark">${row[x][0]}</td>`);
         const tdMark123 = $(`<td class="mark">${x +1}</td>`);
 
-        row.forEach((col, y) => {
+        row.forEach((cell, y) => {
             const td = $(`<td class="col"><div id="${matrix[y][x]}" class="bg"></div></td>`);
             tr.append(td);
         });
