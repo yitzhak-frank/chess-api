@@ -27,7 +27,7 @@ namespace Chess.Tools
             colorStr = color ? "White" : "Black";
         }
 
-        public ToolInfo GetToolInfo => new ToolInfo(color, tool, position, isVirgin, rank);
+        public ToolInfo GetToolInfo => new (color, tool, position, isVirgin, rank);
 
         public List<string> GetTreathsFilteredMoves(Dictionary<string, Tool> tools) => FilterThreatenedMoves(this, color, GetPossibleMoves(tools), tools);
 
