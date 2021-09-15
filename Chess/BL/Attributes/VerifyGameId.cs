@@ -4,7 +4,7 @@ using Chess.BL.Game;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Chess.BL.Middleware
+namespace Chess.BL.Attributes
 {
     public class VerifyGameId : ActionFilterAttribute
     {

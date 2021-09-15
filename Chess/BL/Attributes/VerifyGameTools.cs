@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-using Chess.Tools;
+using Chess.ChessLogic.Tools;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
-using static Chess.Table.Data;
+using static Chess.ChessLogic.Table.Data;
 
-namespace Chess.BL.Middleware
+namespace Chess.BL.Attributes
 {
     public class VerifyGameTools : TypeFilterAttribute
     {

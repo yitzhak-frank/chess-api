@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using Chess.Tools;
+using Chess.ChessLogic.Tools;
 using static Chess.BL.Games.GamesManager;
-using static Chess.Tools.ToolsFactory;
-using static Chess.Table.Data;
+using static Chess.ChessLogic.Tools.ToolsFactory;
+using static Chess.ChessLogic.Table.Data;
 using static Chess.BL.Games.ApiResponse;
-using Chess.Game.Guards;
+using Chess.ChessLogic.Table;
 
 namespace Chess.BL.Game
 {

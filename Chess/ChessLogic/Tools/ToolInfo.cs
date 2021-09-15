@@ -1,4 +1,4 @@
-namespace Chess.Tools
+﻿namespace Chess.ChessLogic.Tools
 {
     public class ToolInfo
     {

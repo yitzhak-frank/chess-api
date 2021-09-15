@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Chess.Game.Guards;
-using Chess.Tools;
+using Chess.ChessLogic.Table;
+using Chess.ChessLogic.Tools;
 
 namespace Chess.BL.Games
 {

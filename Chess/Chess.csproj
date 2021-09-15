@@ -10,6 +10,11 @@
     <EmbeddedResource Remove="NewFolder\**" />
     <None Remove="NewFolder\**" />
     <None Remove="Microsoft.AspNetCore.Cors" />
+    <Content Remove="wwwroot\index.html" />
+    <Content Remove="wwwroot\.DS_Store" />
+    <Content Remove="wwwroot\main.js" />
+    <Content Remove="wwwroot\favicon.png" />
+    <Content Remove="wwwroot\style.css" />
   </ItemGroup>
 
   <ItemGroup>

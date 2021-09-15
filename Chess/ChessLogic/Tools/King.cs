@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using static Chess.Table.Data;
-using static Chess.Game.Guards.Castling;
+using static Chess.ChessLogic.Table.Data;
+using static Chess.ChessLogic.Table.Castling;
 
-namespace Chess.Tools
+namespace Chess.ChessLogic.Tools
 {
     public class King : Tool
     {

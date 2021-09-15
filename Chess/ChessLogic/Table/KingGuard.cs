@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Chess.Tools;
+using Chess.ChessLogic.Tools;
 
-namespace Chess.Game.Guards
+namespace Chess.ChessLogic.Table
 {
     public static class KingGuard
     {

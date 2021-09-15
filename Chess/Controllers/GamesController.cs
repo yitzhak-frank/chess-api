@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using Chess.BL.Games;
-using Chess.BL.Middleware;
-using static Chess.Table.Data;
+using Chess.BL.Attributes;
+using static Chess.ChessLogic.Table.Data;
 using static Chess.BL.Games.ApiResponse;
 using System.Collections.Generic;
-using Chess.Tools;
+using Chess.ChessLogic.Tools;
 
 namespace Chess.Controllers
 {

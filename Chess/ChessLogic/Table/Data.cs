@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Chess.Tools;
+using Chess.ChessLogic.Tools;
 
-namespace Chess.Table
+namespace Chess.ChessLogic.Table
 {
     public static class Data
     {
-        public static string[][] chessMatrix = {
+        public readonly static string[][] chessMatrix = {
 
             new string[8] {"A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"},
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Chess.BL.Games;
 
-namespace Chess.BL.Middleware
+namespace Chess.BL.Attributes
 {
     public class VerifyQueryParams : TypeFilterAttribute
     {

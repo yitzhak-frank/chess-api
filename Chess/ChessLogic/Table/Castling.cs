@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Chess.Tools;
-using static Chess.Table.Data;
+using Chess.ChessLogic.Tools;
+using static Chess.ChessLogic.Table.Data;
 
-namespace Chess.Game.Guards
+namespace Chess.ChessLogic.Table
 {
     public static class Castling
     {

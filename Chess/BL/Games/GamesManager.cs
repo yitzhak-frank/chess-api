@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using Chess.Tools;
+using Chess.ChessLogic.Tools;
 using static Chess.BL.Games.ApiResponse;
-using static Chess.Table.Data;
+using static Chess.ChessLogic.Table.Data;
 using Chess.BL.Game;
 
 namespace Chess.BL.Games

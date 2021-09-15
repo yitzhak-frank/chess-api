@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Chess.BL.Games;
-using Chess.BL.Middleware;
+using Chess.BL.Attributes;
 using static Chess.BL.Games.ApiResponse;
 
 namespace Chess.Controllers

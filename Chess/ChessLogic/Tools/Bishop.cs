@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using static Chess.Table.Data;
+using static Chess.ChessLogic.Table.Data;
 
-namespace Chess.Tools
+namespace Chess.ChessLogic.Tools
 {
     public class Bishop : Tool
     {
