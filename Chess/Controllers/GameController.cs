@@ -42,5 +42,13 @@ namespace Chess.Controllers
         {
             return Ok(GamesManager.GetGame(gameId).GetGameState());
         }
+
+        [HttpGet]
+        [Route("coronate/{gameId}")]
+        [VerifyQueryParams("toolPos", "rank")]
+        public ActionResult<CoronationResponse> Coronate(long gameId, string toolPos, string rank)
+        {
+            return Ok(GamesManager.GetGame(gameId).Coronate(toolPos, rank));
+        }
     }
 }

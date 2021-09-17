@@ -57,13 +57,15 @@ namespace Chess.BL.Games
             public bool colorTurn { get; set; }
             public string message { get; set; }
             public Dictionary<string, ToolInfo> tools { get; set; }
+            public string coronation { get; set; }
 
-            public MoveResponse(bool success, bool colorTurn, string message, Dictionary<string, ToolInfo> tools)
+            public MoveResponse(bool success, bool colorTurn, string message, Dictionary<string, ToolInfo> tools, string coronation = "")
             {
                 this.message = message;
                 this.tools = tools;
                 this.success = success;
                 this.colorTurn = colorTurn;
+                this.coronation = coronation;
             }
         }
         
@@ -83,6 +85,20 @@ namespace Chess.BL.Games
                 this.isChess = isChess;
                 this.isChessmate = isChessmate;
                 this.colorThreatend = colorThreatend;
+            }
+        }
+
+        public class CoronationResponse
+        {
+            public bool success { get; set; }
+            public string message { get; set; }
+            public Dictionary<string, ToolInfo> tools { get; set; }
+
+            public CoronationResponse(bool success, string message, Dictionary<string, ToolInfo> tools)
+            {
+                this.success = success;
+                this.message = message;
+                this.tools = tools;
             }
         }
     }

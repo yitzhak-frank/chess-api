@@ -47,6 +47,12 @@ namespace Chess.BL.Attributes
                         context.Result = new RedirectResult($"/api/error/bad-request/{message}");
                         return;
                     }
+                    if (query == "rank" && !new string[] { "Queen", "Rook", "Bishop", "Knight" }.Contains(queryValue, StringComparer.OrdinalIgnoreCase))
+                    {
+                        string message = $"Incorrect argument - '{query}' parameter must have one of the folowing values, 'Queen' | 'Rook' | 'Bishop' | 'Knight'";
+                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+                        return;
+                    }
                 }
             }
 

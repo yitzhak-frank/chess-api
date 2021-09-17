@@ -25,4 +25,38 @@ namespace Chess.ChessLogic.Table
 
         };
     }
+
+    public static class BlackTools
+    {
+        public static char GetTool(string tool)
+        {
+            return tool switch
+            {
+                "King" => '♚',
+                "Queen" => '♛',
+                "Rook" => '♜',
+                "Bishop" => '♝',
+                "Knight" => '♞',
+                "Pawn" => '♟',
+                _ => '♟',
+            };
+        }
+    }
+
+    public static class WhiteTools
+    {
+        public static char GetTool(string tool)
+        {
+            return tool switch
+            {
+                "King" => '♔',
+                "Queen" => '♕',
+                "Rook" => '♖',
+                "Bishop" => '♗',
+                "Knight" => '♘',
+                "Pawn" => '♙',
+                _ => '♙',
+            };
+        }
+    }
 }

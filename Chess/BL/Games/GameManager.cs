@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Globalization;
 using Chess.ChessLogic.Tools;
 using static Chess.BL.Games.GamesManager;
 using static Chess.ChessLogic.Tools.ToolsFactory;
@@ -27,11 +28,16 @@ namespace Chess.BL.Game
         public string IsMoveAllowed(string oldPos, string newPos)
         {
             Tool Tool = tools[oldPos];
-            if (!tools.ContainsKey(oldPos)) return $"No tool found at {oldPos} position";
-            if (tools.ContainsKey(newPos) && tools[newPos].color == Tool.color) return $"{(Tool.color ? "White" : "Black")} already have {tools[newPos].rank} in {newPos} position";
-            if (Castling.IsCastling(oldPos, newPos, tools) && !Castling.GetCastlingMoves(tools[oldPos], tools).Contains(newPos)) return "Castling not allowed";
-            if (!Tool.GetPossibleMoves(tools).Contains(newPos)) return $"{Tool.rank} at {oldPos} position can't go to {newPos} position";
-            if (!Tool.GetTreathsFilteredMoves(tools).Contains(newPos)) return KingGuard.unallowedMoves[newPos];
+            if (!tools.ContainsKey(oldPos))
+                return $"No tool found at {oldPos} position";
+            if (tools.ContainsKey(newPos) && tools[newPos].color == Tool.color)
+                return $"{(Tool.color ? "White" : "Black")} already have {tools[newPos].rank} in {newPos} position";
+            if (Castling.IsCastling(oldPos, newPos, tools) && !Castling.GetCastlingMoves(tools[oldPos], tools).Contains(newPos))
+                return "Castling not allowed";
+            if (!Tool.GetPossibleMoves(tools).Contains(newPos))
+                return $"{Tool.rank} at {oldPos} position can't go to {newPos} position";
+            if (!Tool.GetTreathsFilteredMoves(tools).Contains(newPos))
+                return KingGuard.unallowedMoves[newPos];
             return "";
         }
 
@@ -64,7 +70,8 @@ namespace Chess.BL.Game
                 moveState = $"{(tools[newPos].color ? "White" : "Black")} {tools[newPos].rank} from {oldPos} position, has been successfully moved to {newPos} position";
             }
             colorTurn = !colorTurn;
-            return new MoveResponse(true, colorTurn, moveState, GetGameToolsInfo());
+            string coronation = Coronation.IsCoronation(tools[newPos].GetToolInfo) == "" ? newPos : "";
+            return new MoveResponse(true, colorTurn, moveState, GetGameToolsInfo(), coronation);
         }
 
         public void UpdateToolsOnMove(string oldPos, string newPos)
@@ -96,6 +103,22 @@ namespace Chess.BL.Game
             string gameState = KingGuard.CheckGameState(new List<string> { }, colorTurn, tools);
             bool isChess = gameState.Contains("Chess"), isChessmate = gameState.Contains("Chessmate");
             return new GameStateResponse(gameState, KingGuard.kingThrets, isChess, isChessmate, colorTurn);
+        }
+
+        public CoronationResponse Coronate(string toolPos, string rank)
+        {
+            ToolInfo tool = tools[toolPos].GetToolInfo;
+            string error = Coronation.IsCoronation(tool);
+            if(error != "") return new CoronationResponse(false, error, GetGameToolsInfo());
+
+            tool.rank = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(rank);
+            tool.tool = tool.color ? WhiteTools.GetTool(rank) : BlackTools.GetTool(rank);
+
+            tools.Remove(tool.position);
+            tools.Add(tool.position, GetTool(tool));
+
+            string message = $"Pawn at {toolPos} position has been successfully coronated to {rank}";
+            return new CoronationResponse(true, message, GetGameToolsInfo());
         }
     }
 }

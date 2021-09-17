@@ -39,8 +39,8 @@ namespace Chess.ChessLogic.Tools
 
         private void CalcToolsToEat(Action<string, Dictionary<string, Tool>> check, Dictionary<string, Tool> tools)
         {
+            if (index[1] == 0 || index[1] == 7) return;
             int length = chessMatrix.Length;
-
             if (index[0] + (direction * -1) >= 0 && index[0] + (direction * -1) < length)
                 check(chessMatrix[index[0] + (direction * -1)][index[1] + direction], tools);
             if (index[0] + direction >= 0 && index[0] + direction < length)
