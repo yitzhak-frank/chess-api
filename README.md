@@ -291,8 +291,6 @@ _Route_ - `/api/game/game-state/{gameId}`<br />
 _Parameters_<br />
 {<br />
 &emsp; (path) `gameId`: long <br />
-&emsp; (query) `toolPos`: string<br />
-&emsp; (query) `rank`: string<br />
 }<br />
 
 <details>
@@ -319,6 +317,8 @@ _Route_ - `/api/game/coronate/{gameId}`<br />
 _Parameters_<br />
 {<br />
 &emsp; (path) `gameId`: long <br />
+&emsp; (query) `toolPos`: string<br />
+&emsp; (query) `rank`: string<br />
 }<br />
 
 <details>
