@@ -291,6 +291,8 @@ _Route_ - `/api/game/game-state/{gameId}`<br />
 _Parameters_<br />
 {<br />
 &emsp; (path) `gameId`: long <br />
+&emsp; (query) `toolPos`: string<br />
+&emsp; (query) `rank`: string<br />
 }<br />
 
 <details>
@@ -305,6 +307,48 @@ _Parameters_<br />
 &emsp;&emsp;&emsp;"A1": string,<br />
 &emsp;&emsp;&emsp;"B1": string,<br />
 &emsp;&emsp;&emsp;"C1": string<br />
+&emsp;&emsp;&emsp;<strong>...</strong><br />
+&emsp;&emsp;}<br />
+&emsp;}<br />
+}<br />
+</details>
+
+**Coronation**:  
+_Method_ - GET  
+_Route_ - `/api/game/coronate/{gameId}`<br />
+_Parameters_<br />
+{<br />
+&emsp; (path) `gameId`: long <br />
+}<br />
+
+<details>
+<summary>Response</summary><br />
+{<br />
+&emsp;{<br />
+&emsp;&emsp;"success": boolean<br />
+&emsp;&emsp;"message": string,<br />
+&emsp;&emsp;"tools" : {<br />
+&emsp;&emsp;&emsp;"A1": {<br />
+&emsp;&emsp;&emsp;&emsp;"color": boolean,<br />
+&emsp;&emsp;&emsp;&emsp;"tool": string,<br />
+&emsp;&emsp;&emsp;&emsp;"position": string,<br />
+&emsp;&emsp;&emsp;&emsp;"isVirgin": boolean,<br />
+&emsp;&emsp;&emsp;&emsp;"rank": string<br />
+&emsp;&emsp;&emsp;},<br />
+&emsp;&emsp;&emsp;"B1": {<br />
+&emsp;&emsp;&emsp;&emsp;"color": boolean,<br />
+&emsp;&emsp;&emsp;&emsp;"tool": string,<br />
+&emsp;&emsp;&emsp;&emsp;"position": string,<br />
+&emsp;&emsp;&emsp;&emsp;"isVirgin": boolean,<br />
+&emsp;&emsp;&emsp;&emsp;"rank": string<br />
+&emsp;&emsp;&emsp;},<br />
+&emsp;&emsp;&emsp;"C1": {<br />
+&emsp;&emsp;&emsp;&emsp;"color": boolean,<br />
+&emsp;&emsp;&emsp;&emsp;"tool": string,<br />
+&emsp;&emsp;&emsp;&emsp;"position": string,<br />
+&emsp;&emsp;&emsp;&emsp;"isVirgin": boolean,<br />
+&emsp;&emsp;&emsp;&emsp;"rank": string<br />
+&emsp;&emsp;&emsp;}<br />
 &emsp;&emsp;&emsp;<strong>...</strong><br />
 &emsp;&emsp;}<br />
 &emsp;}<br />
