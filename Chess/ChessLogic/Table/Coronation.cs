@@ -10,9 +10,9 @@ namespace Chess.ChessLogic.Table
             if (tool.rank != "Pawn")
                 return $"{tool.rank} can not be coronated only pawns can";
             if (tool.color && !tool.position.Contains("8"))
-                return $"White pawns can be coronated only in 8th row";
+                return $"White pawns can be coronated only in the 8th row";
             if (!tool.color && !tool.position.Contains("1"))
-                return $"Black pawns can be coronated only in 1th row";
+                return $"Black pawns can be coronated only in the 1th row";
             return "";
         }
 

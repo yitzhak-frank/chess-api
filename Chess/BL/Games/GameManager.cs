@@ -15,7 +15,7 @@ namespace Chess.BL.Game
     {
         public bool colorTurn;
         public long gameId { get; } = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        public Dictionary<string, Tool> tools { get; } = new () { };
+        public Dictionary<string, Tool> tools { get; } = new() { };
 
         public GameManager(List<ToolInfo> toolsInfo, bool colorTurn)
         {
@@ -109,10 +109,10 @@ namespace Chess.BL.Game
         {
             ToolInfo tool = tools[toolPos].GetToolInfo;
             string error = Coronation.IsCoronation(tool);
-            if(error != "") return new CoronationResponse(false, error, GetGameToolsInfo());
+            if (error != "") return new CoronationResponse(false, error, GetGameToolsInfo());
 
             tool.rank = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(rank);
-            tool.tool = tool.color ? WhiteTools.GetTool(rank) : BlackTools.GetTool(rank);
+            tool.tool = tool.color ? WhiteTools.GetTool(tool.rank) : BlackTools.GetTool(tool.rank);
 
             tools.Remove(tool.position);
             tools.Add(tool.position, GetTool(tool));
