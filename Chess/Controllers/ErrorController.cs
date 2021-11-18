@@ -9,10 +9,9 @@ namespace Chess.Controllers
     {
         [HttpGet]
         [Route("bad-request/{message}")]
-        public BadHttpRequestException BadRequest(string message)
+        public ActionResult<string> BadRequest(string message)
         {
-            Response.StatusCode = 400;
-            return new BadHttpRequestException(message, Response.StatusCode);
+            return BadRequest(message);
         }
     }
 }

@@ -29,6 +29,9 @@ namespace Chess.BL.Attributes
             return JsonConvert.DeserializeObject<Dictionary<string, ToolInfo>>(toolsStr) ?? tools;
         }
 
+        private static void returnBadRequest(ActionExecutingContext context, string message) =>
+            context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+
         private class MyAttributeImpl : IActionFilter
         {
             public void OnActionExecuting(ActionExecutingContext context)
@@ -40,33 +43,33 @@ namespace Chess.BL.Attributes
                 if (tools.Count <= 0)
                 {
                     message = "Incorrect content of request body, make sure everything in place as it should be";
-                    context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+                    returnBadRequest(context, message);
                     return;
                 }
 
                 string[] ranks = new string[6] { "King", "Queen", "Rook", "Bishop", "Knight", "Pawn" };
                 Dictionary<string, int> kings = new() { { "Black", 0 }, { "White", 0 } };
                 List<string> tableCells = new ();
-                Array.ForEach(chessMatrix, (row) => Array.ForEach(row, (cell) => tableCells.Add(cell)));
+                Array.ForEach(chessMatrix, row => Array.ForEach(row, cell => tableCells.Add(cell)));
 
                 foreach (KeyValuePair<string, ToolInfo> tool in tools)
                 {
                     if (!tableCells.Contains(tool.Key))
                     {
                         message = $"Incorrect content of request body, '{tool.Key}' is not a valid position";
-                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+                        returnBadRequest(context, message);
                         return;
                     }
                     if(tool.Key != tool.Value.position)
                     {
                         message = $"Incorrect content of request body, tool key at '{tool.Key}' position don't match his position field value '{tool.Value.position}'";
-                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+                        returnBadRequest(context, message);
                         return;
                     }
                     if(!ranks.Contains(tool.Value.rank))
                     {
                         message = $"Incorrect content of request body, tool rank '{tool.Value.rank}' at '{tool.Key}' position is not a valid rank, rank must be one of the followed values - {string.Join(',', ranks)}";
-                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+                        returnBadRequest(context, message);
                         return;
                     }
 
@@ -77,13 +80,13 @@ namespace Chess.BL.Attributes
                     if(king.Value > 1)
                     {
                         message = $"Incorrect content of request body, You have more then one {king.Key} king, you can have only one";
-                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+                        returnBadRequest(context, message);
                         return;
                     }
                     if(king.Value <= 0)
                     {
                         message = $"Incorrect content of request body, You don't have {king.Key} king";
-                        context.Result = new RedirectResult($"/api/error/bad-request/{message}");
+                        returnBadRequest(context, message);
                         return;
                     }
                 }
